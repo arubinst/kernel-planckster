@@ -12,6 +12,19 @@ docker compose -f docker-compose.yml --profile storage up -d
 
 ## Run the Docker container
 
+I had to add two options to make it work. 
+
+- One is to force the use of HTTP instead of HTTPS (we do not have certificates)
+
+```bash
+    -e KP_OBJECT_STORE_SECURE=false
+```
+
+- The other let's me connect to the kernel from any location (and not only localhost)
+```bash
+    -e KP_ALLOWED_ORIGINS="*" 
+```
+
 ```bash
 docker run -d --name kernel-planckster \
     -p 8000:8000 \
