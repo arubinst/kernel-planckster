@@ -25,6 +25,12 @@ I had to add two options to make it work.
     -e KP_ALLOWED_ORIGINS="*" 
 ```
 
+I also had to change the port to contact minio's API to 9000 (instead of 9001 as the planckster original info indicated)
+
+```bash
+    -e KP_OBJECT_STORE_PORT=9000 \
+```
+
 ```bash
 docker run -d --name kernel-planckster \
     -p 8000:8000 \
